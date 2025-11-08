@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeCart();
     setupEventListeners();
     setupMobileMenu();
+    setupNewsletter();
 });
 
 // Initialize cart from localStorage
@@ -748,6 +749,29 @@ if (shopNowBtn) {
     });
 }
 
+// Setup newsletter form
+function setupNewsletter() {
+    const newsletterForm = document.getElementById('newsletterForm');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const emailInput = this.querySelector('input[type="email"]');
+            const email = emailInput.value;
+            
+            // Save to localStorage
+            let subscribers = JSON.parse(localStorage.getItem('newsletter_subscribers') || '[]');
+            if (!subscribers.includes(email)) {
+                subscribers.push(email);
+                localStorage.setItem('newsletter_subscribers', JSON.stringify(subscribers));
+                showNotification('Thank you for subscribing!');
+                emailInput.value = '';
+            } else {
+                showNotification('You are already subscribed!');
+            }
+        });
+    }
+}
+
 // Add CSS for notification and cart modal dynamically
 const style = document.createElement('style');
 style.textContent = `
@@ -1253,6 +1277,59 @@ style.textContent = `
         font-size: 1.1rem;
     }
     
+    /* Newsletter Section */
+    .newsletter-section {
+        background: linear-gradient(135deg, var(--primary-navy) 0%, var(--accent-brown) 100%);
+        padding: 4rem 0;
+        margin: 3rem 0 0 0;
+    }
+    
+    .newsletter-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2rem;
+    }
+    
+    .newsletter-text {
+        flex: 1;
+    }
+    
+    .newsletter-text h2 {
+        color: white;
+        margin-bottom: 0.5rem;
+        font-size: 2rem;
+    }
+    
+    .newsletter-text p {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 1.1rem;
+    }
+    
+    .newsletter-form {
+        flex: 1;
+        display: flex;
+        gap: 1rem;
+        max-width: 500px;
+    }
+    
+    .newsletter-form input {
+        flex: 1;
+        padding: 1rem;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+    }
+    
+    .newsletter-form input:focus {
+        outline: 2px solid white;
+    }
+    
+    .newsletter-form button {
+        padding: 1rem 2rem;
+        white-space: nowrap;
+    }
+    
     @media (max-width: 768px) {
         .nav-menu.active {
             position: absolute;
@@ -1293,6 +1370,20 @@ style.textContent = `
         
         .product-actions {
             flex-direction: column;
+        }
+        
+        .newsletter-content {
+            flex-direction: column;
+            text-align: center;
+        }
+        
+        .newsletter-form {
+            flex-direction: column;
+            width: 100%;
+        }
+        
+        .newsletter-form button {
+            width: 100%;
         }
     }
     }
