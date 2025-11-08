@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - OliverSales</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <!-- Logo -->
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-baby"></i>
+                    </div>
+                    <span class="logo-text">OLIVERSALES</span>
+                </div>
+
+                <!-- Navigation Menu -->
+                <nav class="nav-menu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="shop.html" class="nav-link active">Shop</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </nav>
+
+                <!-- Search and Cart -->
+                <div class="header-actions">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search for products" class="search-input">
+                        <button class="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <div class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Shop All Products</h1>
+            <p>Browse our complete collection of kids' clothing</p>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="shop-section">
+        <div class="container">
+            <div class="shop-layout">
+                <!-- Sidebar Filters -->
+                <aside class="shop-sidebar">
+                    <div class="filter-group">
+                        <h3>Categories</h3>
+                        <label class="filter-option">
+                            <input type="checkbox" name="category" value="all" checked>
+                            <span>All Products</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="category" value="tops">
+                            <span>Tops</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="category" value="bottoms">
+                            <span>Bottoms</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="category" value="dresses">
+                            <span>Dresses</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="category" value="new">
+                            <span>New Arrivals</span>
+                        </label>
+                    </div>
+
+                    <div class="filter-group">
+                        <h3>Price Range</h3>
+                        <label class="filter-option">
+                            <input type="radio" name="price" value="all" checked>
+                            <span>All Prices</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="radio" name="price" value="0-25">
+                            <span>Under $25</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="radio" name="price" value="25-40">
+                            <span>$25 - $40</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="radio" name="price" value="40+">
+                            <span>Over $40</span>
+                        </label>
+                    </div>
+
+                    <div class="filter-group">
+                        <h3>Size</h3>
+                        <label class="filter-option">
+                            <input type="checkbox" name="size" value="0-6m">
+                            <span>0-6 Months</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="size" value="6-12m">
+                            <span>6-12 Months</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="size" value="1-2y">
+                            <span>1-2 Years</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="size" value="2-4y">
+                            <span>2-4 Years</span>
+                        </label>
+                    </div>
+
+                    <button class="btn btn-primary" onclick="applyFilters()">Apply Filters</button>
+                </aside>
+
+                <!-- Products Grid -->
+                <div class="shop-content">
+                    <div class="shop-toolbar">
+                        <p class="results-count">Showing <span id="product-count">24</span> products</p>
+                        <select class="sort-select">
+                            <option value="featured">Featured</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="newest">Newest First</option>
+                        </select>
+                    </div>
+
+                    <div class="products-grid" id="shop-products">
+                        <!-- Products will be loaded here dynamically -->
+                    </div>
+
+                    <div class="pagination">
+                        <button class="page-btn">&laquo; Previous</button>
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                        <button class="page-btn">Next &raquo;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About OliverSales</h3>
+                    <p>Premium quality clothing for your little ones. We believe in comfort, style, and sustainability.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#shipping">Shipping Info</a></li>
+                        <li><a href="#returns">Returns</a></li>
+                        <li><a href="#sizing">Size Guide</a></li>
+                        <li><a href="#track">Track Order</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 OliverSales. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/shop.js"></script>
+</body>
+</html>
