@@ -1,4 +1,4 @@
-cd// Shop page functionality
+// Shop page functionality
 
 // Sample product data with ratings
 const allProducts = [
