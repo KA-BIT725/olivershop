@@ -1,15 +1,39 @@
-# OliverSales E-Commerce Website
+# 👶 OliverSales E-Commerce Website
 
-A modern, responsive e-commerce website for kids' clothing built with HTML, CSS, and JavaScript.
+![GitHub repo size](https://img.shields.io/github/repo-size/KA-BIT725/olivershop)
+![GitHub stars](https://img.shields.io/github/stars/KA-BIT725/olivershop?style=social)
+![GitHub forks](https://img.shields.io/github/forks/KA-BIT725/olivershop?style=social)
+
+A modern, responsive e-commerce website for kids' clothing built with pure HTML, CSS, and JavaScript - no frameworks required!
+
+## 🌐 Live Demo
+
+[View Live Website](https://ka-bit725.github.io/olivershop/) (Coming soon)
+
+## 📸 Screenshots
+
+![OliverSales Homepage](images/hero-baby.png)
 
 ## 🚀 Features
 
-- **Responsive Design** - Works on desktop, tablet, and mobile devices
-- **Shopping Cart** - Add items, view cart, and manage quantities
-- **Product Categories** - Browse by Tops, Bottoms, Dresses, and New Arrivals
-- **Search Functionality** - Search for products
-- **Smooth Animations** - Hover effects and transitions
-- **Local Storage** - Cart persists across browser sessions
+- ✅ **Responsive Design** - Works on desktop, tablet, and mobile devices
+- ✅ **Shopping Cart** - Add items, view cart, and manage quantities
+- ✅ **Product Search** - Search products by name or category
+- ✅ **Product Filtering** - Filter by category, price range, and size
+- ✅ **Product Sorting** - Sort by price, newest, or featured
+- ✅ **24+ Products** - Full product catalog with images
+- ✅ **Contact Form** - Working form with validation
+- ✅ **Smooth Animations** - Hover effects and transitions
+- ✅ **Local Storage** - Cart persists across browser sessions
+- ✅ **No Dependencies** - Pure HTML, CSS, and JavaScript
+
+## 🛠️ Tech Stack
+
+- **HTML5** - Semantic markup
+- **CSS3** - Modern styling with Grid and Flexbox
+- **JavaScript (ES6+)** - Interactive functionality
+- **Font Awesome** - Icons
+- **Unsplash** - Product images (placeholder)
 
 ## 📁 Project Structure
 
@@ -50,13 +74,24 @@ Replace these placeholder images with your actual product photos:
 
 ## 🖥️ How to Run
 
-1. **Open the website**:
-   - Double-click `index.html` to open in your default browser
-   - OR right-click → "Open with" → Choose your browser
+### Option 1: Direct File Opening
+1. Clone or download this repository
+2. Open `index.html` in your web browser
+3. Start shopping!
 
-2. **For development** (optional):
-   - Use VS Code with Live Server extension
-   - Or use any local web server
+### Option 2: Local Server (Recommended)
+```bash
+# Using Python
+python -m http.server 8000
+
+# Using Node.js
+npx http-server
+
+# Using PHP
+php -S localhost:8000
+```
+
+Then visit: `http://localhost:8000`
 
 ## 🛠️ Customization
 
@@ -128,25 +163,34 @@ Works on:
 
 ## 🎯 Future Enhancements
 
-- Product detail pages
-- User authentication
-- Payment gateway integration
-- Order history
-- Product reviews and ratings
-- Wishlist functionality
-- Size and color selectors
-- Inventory management
+- [ ] Backend integration with Node.js/Express
+- [ ] User authentication system
+- [ ] Payment gateway integration (Stripe/PayPal)
+- [ ] Admin dashboard for product management
+- [ ] Order tracking system
+- [ ] Product reviews and ratings
+- [ ] Wishlist functionality
+- [ ] Email notifications
+- [ ] Newsletter subscription
+- [ ] SEO optimization
 
-## 📞 Support
+## 🤝 Contributing
 
-For questions or issues with this website template, check:
-- HTML/CSS/JavaScript documentation
-- Browser developer tools (F12)
-- VS Code documentation
+Contributions are welcome! Feel free to:
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## 📄 License
+## � Contact
 
-Free to use for your business. Customize as needed!
+**Project Owner:** KA-BIT725  
+**Repository:** [https://github.com/KA-BIT725/olivershop](https://github.com/KA-BIT725/olivershop)
+
+## ⭐ Show Your Support
+
+Give a ⭐️ if this project helped you!
 
 ---
 
