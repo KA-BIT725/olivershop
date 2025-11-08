@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { getDatabase } = require('../database/connection');
 const { v4: uuidv4 } = require('uuid');
+const emailService = require('../services/emailService');
 
 // GET all orders (with optional user filter)
 router.get('/', (req, res) => {
@@ -83,7 +84,7 @@ router.get('/:identifier', (req, res) => {
 });
 
 // POST create new order
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
     try {
         const db = getDatabase();
         const {
@@ -196,6 +197,23 @@ router.post('/', (req, res) => {
             },
             items
         );
+
+        // Send order confirmation email
+        try {
+            await emailService.sendOrderConfirmation({
+                email,
+                orderNumber,
+                firstName: first_name,
+                items,
+                total,
+                subtotal,
+                shipping
+            });
+            console.log(`Order confirmation email sent to ${email}`);
+        } catch (emailError) {
+            console.error('Failed to send order confirmation email:', emailError);
+            // Don't fail the order creation if email fails
+        }
 
         res.status(201).json({
             success: true,

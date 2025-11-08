@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { getDatabase } = require('../database/connection');
+const emailService = require('../services/emailService');
 
 // GET all newsletter subscribers
 router.get('/', (req, res) => {
@@ -22,7 +23,7 @@ router.get('/', (req, res) => {
 });
 
 // POST subscribe to newsletter
-router.post('/subscribe', (req, res) => {
+router.post('/subscribe', async (req, res) => {
     try {
         const db = getDatabase();
         const { email } = req.body;
@@ -64,6 +65,15 @@ router.post('/subscribe', (req, res) => {
 
         // Add new subscriber
         const result = db.prepare('INSERT INTO newsletter_subscribers (email) VALUES (?)').run(email);
+
+        // Send welcome email
+        try {
+            await emailService.sendWelcomeEmail({ email });
+            console.log(`Welcome email sent to ${email}`);
+        } catch (emailError) {
+            console.error('Failed to send welcome email:', emailError);
+            // Don't fail subscription if email fails
+        }
 
         res.status(201).json({
             success: true,
